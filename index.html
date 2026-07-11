@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poto. — Foto Wisuda sama Khaidir · Palu</title>
+  <meta name="description" content="Foto wisuda di Palu yang santai, personal, dan nggak bikin awkward. Satu fotografer, satu fokus — hasilnya foto yang terasa kayak kamu." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --surface:     #FFFBF7;
+      --surface-alt: #F5EDE3;
+      --white:       #FFFFFF;
+      --accent:      #FF6B2B;
+      --accent-dark: #E05A1C;
+      --accent-soft: #FFF0E6;
+      --accent-glow: rgba(255,107,43,.18);
+      --dot:         #FF3B30;
+      --ink:         #1F1912;
+      --ink-muted:   #7D6E5C;
+      --ink-faint:   #B5A898;
+      --border:      #E6DDD0;
+      --radius:      18px;
+      --radius-sm:   12px;
+      --shadow-sm:   0 1px 3px rgba(31,25,18,.04), 0 4px 12px rgba(31,25,18,.06);
+      --shadow-md:   0 4px 8px rgba(31,25,18,.04), 0 12px 36px rgba(31,25,18,.1);
+      --shadow-lg:   0 8px 16px rgba(31,25,18,.05), 0 24px 64px rgba(31,25,18,.14);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.65;
+      font-size: 16px;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Baloo 2', cursive;
+      line-height: 1.15;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .container--narrow {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section { padding: 96px 0; }
+
+    .section-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 6px 16px;
+      border-radius: 99px;
+      margin-bottom: 20px;
+    }
+
+    .brand-word {
+      font-family: 'Baloo 2', cursive;
+      font-weight: 800;
+    }
+    .dot { color: var(--dot); }
+
+    /* ── FADE-IN ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-d1 { transition-delay: .08s; }
+    .reveal-d2 { transition-delay: .16s; }
+    .reveal-d3 { transition-delay: .24s; }
+    .reveal-d4 { transition-delay: .32s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ═══════════════════════════════════════════
+       STICKY NAV
+    ═══════════════════════════════════════════ */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,251,247,.88);
+      backdrop-filter: blur(16px) saturate(1.8);
+      -webkit-backdrop-filter: blur(16px) saturate(1.8);
+      border-bottom: 1px solid rgba(230,221,208,.5);
+      transform: translateY(-100%);
+      transition: transform .35s cubic-bezier(.22,.61,.36,1);
+      padding: 0 24px;
+    }
+    .site-nav.visible { transform: translateY(0); }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .nav-brand {
+      font-family: 'Baloo 2', cursive;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 99px;
+      transition: color .2s, background .2s;
+    }
+    .nav-links a:hover { color: var(--ink); background: rgba(31,25,18,.04); }
+
+    .nav-cta {
+      font-size: .82rem !important;
+      font-weight: 700 !important;
+      color: #fff !important;
+      background: var(--accent) !important;
+      padding: 7px 18px !important;
+      box-shadow: 0 2px 8px rgba(255,107,43,.3);
+    }
+    .nav-cta:hover { background: var(--accent-dark) !important; color: #fff !important; }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+    }
+
+    /* ═══════════════════════════════════════════
+       1. HERO
+    ═══════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      overflow: hidden;
+      background: #1A1208;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-gallery {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 12px 0;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .gallery-row {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+      height: calc(50% - 6px);
+    }
+
+    .gallery-row--left  { animation: scrollLeft  35s linear infinite; will-change: transform; }
+    .gallery-row--right { animation: scrollRight 40s linear infinite; will-change: transform; }
+
+    @keyframes scrollLeft  { to { transform: translateX(-50%); } }
+    @keyframes scrollRight { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .gallery-row--left, .gallery-row--right { animation: none; }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-row .gallery-item:nth-child(n+11) { display: none; }
+    }
+
+    .gallery-item {
+      flex-shrink: 0;
+      width: 200px;
+      height: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 70% at 50% 50%, rgba(26,18,8,.5) 0%, rgba(26,18,8,.82) 100%);
+    }
+
+    .hero-vignette {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, #1A1208 0%, transparent 20%, transparent 80%, #1A1208 100%),
+        linear-gradient(to bottom, transparent 60%, #1A1208 100%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 24px;
+      max-width: 720px;
+    }
+
+    .hero-brand {
+      font-family: 'Baloo 2', cursive;
+      font-weight: 800;
+      font-size: clamp(2.6rem, 8vw, 4rem);
+      color: var(--surface);
+      margin-bottom: 16px;
+      letter-spacing: -.02em;
+    }
+
+    #hero .section-label {
+      background: rgba(255,255,255,.1);
+      color: #F5C49A;
+      border: 1px solid rgba(245,196,154,.2);
+      margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+    }
+
+    #hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.8rem, 8vw, 4.8rem);
+      color: #fff;
+      margin-bottom: 0;
+      letter-spacing: -.02em;
+      text-wrap: balance;
+    }
+
+    #hero h1 em {
+      font-style: italic;
+      color: #F5A865;
+      display: block;
+    }
+
+    #hero .sub {
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      color: rgba(255,255,255,.7);
+      max-width: 480px;
+      margin: 24px auto 0;
+      line-height: 1.75;
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: .45;
+      animation: float 2.5s ease-in-out infinite;
+    }
+    .hero-scroll-hint span {
+      font-size: 10px;
+      color: #fff;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    @keyframes float {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%     { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ═══════════════════════════════════════════
+       TRUST BAR
+    ═══════════════════════════════════════════ */
+    #trust {
+      background: var(--white);
+      padding: 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .trust-inner {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 24px 36px;
+      border-right: 1px solid var(--border);
+      flex: 1;
+      min-width: 200px;
+      justify-content: center;
+    }
+    .trust-item:last-child { border-right: none; }
+
+    .trust-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .trust-text strong {
+      display: block;
+      font-size: .95rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .trust-text span {
+      font-size: .78rem;
+      color: var(--ink-muted);
+    }
+
+    /* ═══════════════════════════════════════════
+       STATS STRIP
+    ═══════════════════════════════════════════ */
+    #stats {
+      background: var(--ink);
+      padding: 56px 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+
+    .stat-item {
+      padding: 8px;
+    }
+
+    .stat-number {
+      font-family: 'Baloo 2', cursive;
+      font-size: clamp(2.4rem, 6vw, 3.4rem);
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: .85rem;
+      color: rgba(255,255,255,.5);
+      font-weight: 500;
+    }
+
+    /* ═══════════════════════════════════════════
+       2. KENAPA PILIH SAYA
+    ═══════════════════════════════════════════ */
+    #kenapa {
+      background: var(--surface);
+    }
+
+    #kenapa h2 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      margin-bottom: 16px;
+      text-wrap: balance;
+    }
+
+    #kenapa .sub-desc {
+      color: var(--ink-muted);
+      font-size: .95rem;
+      margin-bottom: 48px;
+      max-width: 480px;
+    }
+
+    .alasan-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .alasan-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .3s cubic-bezier(.22,.61,.36,1), box-shadow .3s cubic-bezier(.22,.61,.36,1);
+    }
+    .alasan-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .alasan-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+    }
+
+    .alasan-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      color: var(--ink);
+    }
+
+    .alasan-card p {
+      font-size: .92rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+
+    /* ═══════════════════════════════════════════
+       3. PAKET
+    ═══════════════════════════════════════════ */
+    #harga {
+      background: var(--ink);
+      position: relative;
+    }
+
+    #harga .section-label {
+      background: rgba(255,255,255,.08);
+      color: #F5C49A;
+      border: 1px solid rgba(245,196,154,.15);
+    }
+
+    #harga h2 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      color: #fff;
+      margin-bottom: 8px;
+      text-wrap: balance;
+    }
+
+    #harga .sub-desc {
+      color: rgba(255,255,255,.45);
+      margin-bottom: 36px;
+      font-size: .95rem;
+    }
+
+    .harga-tabs {
+      display: inline-flex;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 99px;
+      padding: 4px;
+      margin-bottom: 28px;
+      gap: 4px;
+    }
+
+    .harga-tab {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: .85rem;
+      padding: 10px 24px;
+      border-radius: 99px;
+      border: none;
+      background: transparent;
+      color: rgba(255,255,255,.5);
+      cursor: pointer;
+      transition: background .25s, color .25s, box-shadow .25s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .harga-tab:hover { color: rgba(255,255,255,.85); }
+    .harga-tab.active {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(255,107,43,.35);
+    }
+
+    .harga-note {
+      font-size: .85rem;
+      color: rgba(255,255,255,.4);
+      max-width: 520px;
+      margin-bottom: 32px;
+      line-height: 1.65;
+    }
+
+    .paket-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      align-items: start;
+    }
+
+    .paket-card {
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      background: rgba(255,255,255,.04);
+      position: relative;
+      overflow: hidden;
+      transition: transform .3s cubic-bezier(.22,.61,.36,1), background .3s, border-color .3s;
+    }
+    .paket-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), #FF9A5C);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .paket-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.15);
+    }
+    .paket-card:hover::before { opacity: 1; }
+
+    .paket-card.recommended {
+      background: var(--white);
+      border: 2px solid var(--accent);
+      box-shadow: 0 8px 48px rgba(255,107,43,.2);
+    }
+    .paket-card.recommended::before {
+      opacity: 1;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent), #FFB571);
+    }
+    .paket-card.recommended:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 56px rgba(255,107,43,.28);
+      background: var(--white);
+      border-color: var(--accent);
+    }
+
+    .badge-recom {
+      position: absolute;
+      top: -1px;
+      right: 24px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 4px 12px rgba(255,107,43,.35);
+    }
+
+    .paket-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+    .paket-card.recommended .paket-icon { background: var(--accent-soft); }
+
+    .paket-name {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 8px;
+    }
+    .paket-card.recommended .paket-name { color: var(--ink-muted); }
+
+    .paket-price {
+      font-family: 'Baloo 2', cursive;
+      font-size: 2.6rem;
+      color: #fff;
+      margin-bottom: 4px;
+      line-height: 1;
+    }
+    .paket-card.recommended .paket-price { color: var(--ink); }
+
+    .paket-note {
+      font-size: .82rem;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 24px;
+      padding-top: 4px;
+    }
+    .paket-card.recommended .paket-note { color: var(--ink-muted); }
+
+    .paket-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,.08);
+      margin-bottom: 20px;
+    }
+    .paket-card.recommended .paket-divider { border-color: var(--border); }
+
+    .paket-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .paket-list li {
+      font-size: .9rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: rgba(255,255,255,.65);
+    }
+    .paket-card.recommended .paket-list li { color: var(--ink); }
+
+    .paket-list li::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .btn-paket {
+      display: block;
+      text-align: center;
+      padding: 14px 20px;
+      border-radius: 99px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: .92rem;
+      text-decoration: none;
+      transition: all .25s cubic-bezier(.22,.61,.36,1);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn-paket:active { transform: scale(.97); }
+
+    .btn-paket.outline {
+      border: 1.5px solid rgba(255,255,255,.2);
+      color: rgba(255,255,255,.75);
+      background: transparent;
+    }
+    .btn-paket.outline:hover { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.4); color: #fff; }
+
+    .btn-paket.filled {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      box-shadow: 0 4px 20px rgba(255,107,43,.35);
+    }
+    .btn-paket.filled:hover { background: var(--accent-dark); box-shadow: 0 6px 28px rgba(255,107,43,.45); }
+
+    /* ═══════════════════════════════════════════
+       4. PORTOFOLIO
+    ═══════════════════════════════════════════ */
+    #portofolio {
+      background: var(--surface);
+    }
+
+    #portofolio h2 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      margin-bottom: 8px;
+      text-wrap: balance;
+    }
+
+    #portofolio .sub-desc {
+      color: var(--ink-muted);
+      font-size: .95rem;
+      margin-bottom: 40px;
+    }
+
+    .foto-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 300px 260px 280px;
+      gap: 12px;
+    }
+
+    .foto-grid .foto-box:nth-child(1) { grid-column: 1; grid-row: 1 / 3; }
+    .foto-grid .foto-box:nth-child(2) { grid-column: 2; grid-row: 1; }
+    .foto-grid .foto-box:nth-child(3) { grid-column: 3; grid-row: 1; }
+    .foto-grid .foto-box:nth-child(4) { grid-column: 2 / 4; grid-row: 2; }
+    .foto-grid .foto-box:nth-child(5) { grid-column: 1 / 3; grid-row: 3; }
+    .foto-grid .foto-box:nth-child(6) { grid-column: 3; grid-row: 3; }
+
+    .foto-box {
+      border-radius: var(--radius);
+      background: #D0C8BC;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .foto-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s cubic-bezier(.22,.61,.36,1);
+    }
+
+    .foto-box:hover img {
+      transform: scale(1.05);
+    }
+
+    .foto-box::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.25) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity .35s;
+      pointer-events: none;
+    }
+    .foto-box:hover::after { opacity: 1; }
+
+    .foto-box .foto-zoom {
+      position: absolute;
+      bottom: 12px; right: 12px;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity .3s, transform .3s;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .foto-box:hover .foto-zoom {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .porto-caption {
+      margin-top: 24px;
+      font-size: .85rem;
+      color: var(--ink-faint);
+      text-align: center;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(15,12,8,.92);
+      backdrop-filter: blur(20px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s;
+      padding: 24px;
+      cursor: zoom-out;
+    }
+    .lightbox.open { opacity: 1; pointer-events: auto; }
+
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 90vh;
+      border-radius: 12px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.5);
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.1);
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,.2); }
+
+    /* ═══════════════════════════════════════════
+       5. CARA PESAN
+    ═══════════════════════════════════════════ */
+    #cara-pesan {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+    }
+
+    #cara-pesan h2 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      margin-bottom: 16px;
+      text-wrap: balance;
+    }
+
+    #cara-pesan .sub-desc {
+      color: var(--ink-muted);
+      font-size: .95rem;
+      margin-bottom: 56px;
+    }
+
+    .langkah-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .langkah {
+      text-align: center;
+      padding: 0 8px;
+    }
+
+    .langkah-num {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-family: 'Baloo 2', cursive;
+      font-size: 1.3rem;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .langkah h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+
+    .langkah p {
+      font-size: .9rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+
+    /* connector arrows between steps */
+    .langkah-connector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--border);
+      font-size: 1.5rem;
+      padding-top: 16px;
+    }
+
+    /* ═══════════════════════════════════════════
+       6. FAQ
+    ═══════════════════════════════════════════ */
+    #faq { background: var(--surface-alt); }
+
+    #faq h2 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      margin-bottom: 40px;
+      text-wrap: balance;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    details.faq-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: border-color .25s, box-shadow .25s;
+    }
+    details.faq-item[open] {
+      border-color: var(--accent);
+      box-shadow: 0 4px 24px rgba(255,107,43,.08);
+    }
+
+    summary.faq-q {
+      cursor: pointer;
+      padding: 20px 24px;
+      font-weight: 600;
+      font-size: .95rem;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    summary.faq-q::-webkit-details-marker { display: none; }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .3s cubic-bezier(.22,.61,.36,1), background .2s;
+      color: var(--accent);
+      font-size: .7rem;
+    }
+    details[open] .faq-chevron {
+      transform: rotate(180deg);
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .faq-a {
+      padding: 0 24px 20px;
+      font-size: .9rem;
+      color: var(--ink-muted);
+      line-height: 1.75;
+    }
+
+    /* ═══════════════════════════════════════════
+       7. CTA PENUTUP
+    ═══════════════════════════════════════════ */
+    #cta {
+      position: relative;
+      overflow: hidden;
+      background: var(--accent);
+      padding: 120px 0;
+    }
+
+    #cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,.08) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+
+    #cta::after {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.04);
+      right: -150px;
+      top: -150px;
+      pointer-events: none;
+    }
+
+    #cta .container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .cta-brand {
+      font-family: 'Baloo 2', cursive;
+      font-weight: 800;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      color: rgba(255,255,255,.9);
+      margin-bottom: 16px;
+    }
+
+    #cta h2 {
+      font-size: clamp(2.2rem, 6vw, 3.2rem);
+      color: #fff;
+      margin-bottom: 16px;
+      text-wrap: balance;
+    }
+
+    #cta p {
+      color: rgba(255,255,255,.78);
+      font-size: 1.05rem;
+      margin-bottom: 40px;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 16px 32px;
+      border-radius: 99px;
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(255,107,43,.4);
+      transition: all .25s cubic-bezier(.22,.61,.36,1);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn-wa:hover  { background: var(--accent-dark); box-shadow: 0 6px 32px rgba(255,107,43,.5); transform: translateY(-2px); }
+    .btn-wa:active { transform: scale(.97) translateY(0); }
+    .btn-wa svg    { flex-shrink: 0; }
+
+    .btn-wa.white {
+      background: #fff;
+      color: var(--accent);
+      box-shadow: 0 6px 32px rgba(0,0,0,.15);
+    }
+    .btn-wa.white:hover { background: #FFF5ED; box-shadow: 0 8px 40px rgba(0,0,0,.2); }
+
+    .sosmed-links {
+      margin-top: 32px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+    }
+    .sosmed-links a {
+      color: rgba(255,255,255,.65);
+      font-size: .88rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color .2s;
+      font-weight: 500;
+    }
+    .sosmed-links a:hover { color: #fff; }
+
+    /* ═══════════════════════════════════════════
+       FLOATING WA
+    ═══════════════════════════════════════════ */
+    .wa-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: .88rem;
+      padding: 14px 22px 14px 18px;
+      border-radius: 99px;
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(37,211,102,.4);
+      transition: all .25s cubic-bezier(.22,.61,.36,1);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .wa-float:hover  { background: #1ebe5d; box-shadow: 0 6px 32px rgba(37,211,102,.5); transform: translateY(-2px); }
+    .wa-float:active { transform: scale(.96); }
+
+    @media (max-width: 360px) {
+      .wa-float span { display: none; }
+      .wa-float { padding: 16px; }
+    }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    footer {
+      background: var(--ink);
+      padding: 32px 20px;
+      text-align: center;
+    }
+    footer p {
+      color: rgba(255,255,255,.28);
+      font-size: .78rem;
+    }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      section { padding: 72px 0; }
+
+      .alasan-grid { grid-template-columns: 1fr; gap: 16px; }
+      .alasan-card { padding: 32px 28px; }
+
+      .paket-grid { grid-template-columns: 1fr; }
+
+      .langkah-list { grid-template-columns: 1fr; gap: 32px; }
+      .langkah { text-align: left; padding: 0; display: flex; gap: 16px; align-items: flex-start; }
+      .langkah-num { flex-shrink: 0; }
+      .langkah-connector { display: none; }
+
+      .foto-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .foto-grid .foto-box:nth-child(1) { grid-column: 1 / 3; grid-row: auto; aspect-ratio: 16/10; }
+      .foto-grid .foto-box:nth-child(2) { grid-column: 1; grid-row: auto; aspect-ratio: 3/4; }
+      .foto-grid .foto-box:nth-child(3) { grid-column: 2; grid-row: auto; aspect-ratio: 3/4; }
+      .foto-grid .foto-box:nth-child(4) { grid-column: 1 / 3; grid-row: auto; aspect-ratio: 16/10; }
+      .foto-grid .foto-box:nth-child(5) { grid-column: 1; grid-row: auto; aspect-ratio: 3/4; }
+      .foto-grid .foto-box:nth-child(6) { grid-column: 2; grid-row: auto; aspect-ratio: 3/4; }
+
+      .stats-grid { gap: 12px; }
+      .stat-number { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+
+      .trust-inner { flex-direction: column; }
+      .trust-item { border-right: none; border-bottom: 1px solid var(--border); justify-content: flex-start; padding: 18px 24px; }
+      .trust-item:last-child { border-bottom: none; }
+
+      #cta { padding: 80px 0; }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .alasan-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (min-width: 1024px) {
+      section { padding: 120px 0; }
+      .container { padding: 0 40px; }
+      .container--narrow { padding: 0 40px; }
+      .foto-grid { gap: 16px; }
+      .alasan-card { padding: 48px 36px; }
+      .paket-card { padding: 40px 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY NAV -->
+  <nav class="site-nav" id="siteNav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-brand">Poto<span class="dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="#kenapa">Kenapa Poto</a></li>
+        <li><a href="#harga">Paket</a></li>
+        <li><a href="#portofolio">Portofolio</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="https://wa.me/6285244189949?text=Halo%20Khaidir%2C%20aku%20mau%20tanya%20soal%20foto%20wisuda%20nih!" class="nav-cta" target="_blank" rel="noopener">Chat WA</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       1. HERO
+  ═══════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-gallery" aria-hidden="true">
+      <div class="gallery-row gallery-row--left">
+        <img src="foto/foto13.jpg" class="gallery-item" alt="" />
+        <img src="foto/foto1.jpg"  class="gallery-item" alt="" />
+        <img src="foto/foto11.jpg" class="gallery-item" alt="" />
+        <img src="foto/foto6.jpg"  class="gallery-item" alt="" />
+        <img src="foto/foto10.jpg" class="gallery-item" alt="" />
+        <img src="foto/foto2.jpg"  class="gallery-item" alt="" />
+        <img src="foto/foto7.jpg"  class="gallery-item" alt="" />
+        <img src="foto/foto20.jpg" class="gallery-item" alt="" />
+        <img src="foto/foto13.jpg" class="gallery-item" alt="" />
+        <img src="foto/foto1.jpg"  class="gallery-item" alt="" />
+        <img src="foto/foto11.jpg" class="gallery-item" alt="" />
+        <img src="foto/foto6.jpg"  class="gallery-item" alt="" />
+        <img src="foto/foto10.jpg" class="gallery-item" alt="" />
+        <img src="foto/foto2.jpg"  class="gallery-item" alt="" />
+        <img src="foto/foto7.jpg"  class="gallery-item" alt="" />
+        <img src="foto/foto20.jpg" class="gallery-item" alt="" />
+      </div>
+      <div class="gallery-row gallery-row--right">
+        <img src="foto/foto14.jpg" class="gallery-item" alt="" />
+        <img src="foto/foto4.jpg"  class="gallery-item" alt="" />
+        <img src="foto/foto8.jpg"  class="gallery-item" alt="" />
+        <img src="foto/foto3.jpg"  class="gallery-item" alt="" />
+        <img src="foto/foto9.jpg"  class="gallery-item" alt="" />
+        <img src="foto/foto5.jpg"  class="gallery-item" alt="" />
+        <img src="foto/foto12.jpg" class="gallery-item" alt="" />
+        <img src="foto/foto21.jpg" class="gallery-item" alt="" />
+        <img src="foto/foto14.jpg" class="gallery-item" alt="" />
+        <img src="foto/foto4.jpg"  class="gallery-item" alt="" />
+        <img src="foto/foto8.jpg"  class="gallery-item" alt="" />
+        <img src="foto/foto3.jpg"  class="gallery-item" alt="" />
+        <img src="foto/foto9.jpg"  class="gallery-item" alt="" />
+        <img src="foto/foto5.jpg"  class="gallery-item" alt="" />
+        <img src="foto/foto12.jpg" class="gallery-item" alt="" />
+        <img src="foto/foto21.jpg" class="gallery-item" alt="" />
+      </div>
+    </div>
+
+    <div class="hero-overlay"></div>
+    <div class="hero-vignette"></div>
+
+    <div class="hero-content">
+      <div class="hero-brand">Poto<span class="dot">.</span></div>
+      <span class="section-label">Foto Wisuda · Palu</span>
+      <h1>Hari itu cuma<br /><em>terjadi sekali.</em></h1>
+      <p class="sub">
+        Abadikan momen wisudamu dengan foto yang kamu akan bangga lihat bertahun-tahun kemudian. Personal, santai, dan tanpa repot.
+      </p>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>scroll</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+
+  <!-- TRUST BAR -->
+  <div id="trust">
+    <div class="container">
+      <div class="trust-inner">
+        <div class="trust-item reveal">
+          <div class="trust-icon">📸</div>
+          <div class="trust-text">
+            <strong>Fokus penuh</strong>
+            <span>Satu klien per sesi</span>
+          </div>
+        </div>
+        <div class="trust-item reveal reveal-d1">
+          <div class="trust-icon">✏️</div>
+          <div class="trust-text">
+            <strong>Edit manual</strong>
+            <span>Bukan filter otomatis</span>
+          </div>
+        </div>
+        <div class="trust-item reveal reveal-d2">
+          <div class="trust-icon">🤝</div>
+          <div class="trust-text">
+            <strong>Santai aja</strong>
+            <span>Chat dulu, nggak harus booking</span>
+          </div>
+        </div>
+        <div class="trust-item reveal reveal-d3">
+          <div class="trust-icon">📍</div>
+          <div class="trust-text">
+            <strong>Kota Palu</strong>
+            <span>Siap ke lokasi kampusmu</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- STATS -->
+  <div id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Sesi foto selesai</div>
+        </div>
+        <div class="stat-item reveal reveal-d1">
+          <div class="stat-number">200+</div>
+          <div class="stat-label">Foto sudah diedit</div>
+        </div>
+        <div class="stat-item reveal reveal-d2">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Klien puas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 2. KENAPA PILIH SAYA -->
+  <section id="kenapa">
+    <div class="container">
+      <span class="section-label reveal">Kenapa <span class="brand-word">Poto<span class="dot">.</span></span></span>
+      <h2 class="reveal">Foto wisuda yang terasa<br />kayak kamu banget.</h2>
+      <p class="sub-desc reveal">Bukan fotografer yang nyuruh kamu pose kaku. Ini ceritamu — saya cuma bantu abadikan.</p>
+
+      <div class="alasan-grid">
+        <div class="alasan-card reveal reveal-d1">
+          <div class="alasan-icon">🎯</div>
+          <h3>Satu hari, satu fokus</h3>
+          <p>Kamu dapat perhatian penuh — bukan fotografer yang buru-buru karena ada klien lain menunggu.</p>
+        </div>
+
+        <div class="alasan-card reveal reveal-d2">
+          <div class="alasan-icon">🖌️</div>
+          <h3>Diedit satu per satu</h3>
+          <p>Setiap foto diproses manual, bukan sekadar jepret lalu kirim mentah. Hasilnya beda.</p>
+        </div>
+
+        <div class="alasan-card reveal reveal-d3">
+          <div class="alasan-icon">👀</div>
+          <h3>Cek portofolio dulu</h3>
+          <p>Scroll ke bawah, lihat hasil fotonya. Kalau cocok baru chat — nggak ada tekanan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 3. PAKET -->
+  <section id="harga">
+    <div class="container">
+      <span class="section-label reveal">Paket</span>
+      <h2 class="reveal">Paket <span class="brand-word">Poto<span class="dot">.</span></span><br />yang pas buat kamu.</h2>
+      <p class="sub-desc reveal">Sendirian atau rame-rame, ada pilihannya. Nggak ada biaya nyempil.</p>
+
+      <div class="harga-tabs reveal">
+        <button type="button" class="harga-tab active" data-target="grid-perorangan">Perorangan</button>
+        <button type="button" class="harga-tab" data-target="grid-grup">Grup / Squad</button>
+      </div>
+
+      <p class="harga-note reveal">
+        Angka di bawah masih tahap awal — bisa berubah ke depannya. Yuk jadi bagian dari cerita awal <span class="brand-word" style="color:rgba(255,255,255,.7)">Poto<span class="dot">.</span></span>
+      </p>
+
+      <div class="paket-grid" id="grid-perorangan">
+        <div class="paket-card reveal reveal-d1">
+          <div class="paket-icon">📸</div>
+          <div class="paket-name">Paket Essential</div>
+          <div class="paket-price">Rp 150.000</div>
+          <div class="paket-note">Simpel, nggak ribet, langsung jadi.</div>
+          <hr class="paket-divider" />
+          <ul class="paket-list">
+            <li>Sesi foto 45 menit</li>
+            <li>Bebas pilih tempat</li>
+            <li>10 file hasil editan</li>
+            <li>File digital resolusi penuh</li>
+            <li>Kirim via Google Drive / WA</li>
+          </ul>
+          <a href="https://wa.me/6285244189949?text=Halo%20Khaidir%2C%20aku%20tertarik%20Paket%20Essential%20nih!" class="btn-paket outline" target="_blank" rel="noopener">
+            Tanya soal paket ini
+          </a>
+        </div>
+
+        <div class="paket-card recommended reveal reveal-d2">
+          <span class="badge-recom">Paling Sering Ditanya</span>
+          <div class="paket-icon">🎬</div>
+          <div class="paket-name">Paket Cinematic</div>
+          <div class="paket-price">Rp 250.000</div>
+          <div class="paket-note">Foto + video cinematic buat kenang-kenangan.</div>
+          <hr class="paket-divider" />
+          <ul class="paket-list">
+            <li>Sesi foto 1 jam</li>
+            <li>Bebas pilih tempat</li>
+            <li>20 file hasil editan</li>
+            <li>Video cinematic 1 menit</li>
+            <li>File digital resolusi penuh</li>
+          </ul>
+          <a href="https://wa.me/6285244189949?text=Halo%20Khaidir%2C%20aku%20mau%20tanya%20Paket%20Cinematic%20nih!" class="btn-paket filled" target="_blank" rel="noopener">
+            Tanya soal paket ini
+          </a>
+        </div>
+      </div>
+
+      <div class="paket-grid" id="grid-grup" style="display:none;">
+        <div class="paket-card reveal reveal-d1">
+          <div class="paket-icon">🎉</div>
+          <div class="paket-name">Squad Santai</div>
+          <div class="paket-price">Rp 250.000</div>
+          <div class="paket-note">Maks 4 orang, tambah orang +60rb.</div>
+          <hr class="paket-divider" />
+          <ul class="paket-list">
+            <li>Sesi foto 45 menit</li>
+            <li>Bebas pilih tempat</li>
+            <li>Maksimal 4 orang</li>
+            <li>15 file hasil editan</li>
+            <li>+Rp 60.000 per orang tambahan</li>
+          </ul>
+          <a href="https://wa.me/6285244189949?text=Halo%20Khaidir%2C%20aku%20tertarik%20Squad%20Santai%20nih!" class="btn-paket outline" target="_blank" rel="noopener">
+            Tanya soal paket ini
+          </a>
+        </div>
+
+        <div class="paket-card recommended reveal reveal-d2">
+          <span class="badge-recom">Paling Sering Ditanya</span>
+          <div class="paket-icon">✨</div>
+          <div class="paket-name">Squad Strobist</div>
+          <div class="paket-price">Rp 350.000</div>
+          <div class="paket-note">Pakai flash — bisa siang atau malam.</div>
+          <hr class="paket-divider" />
+          <ul class="paket-list">
+            <li>Sesi foto 1 jam 30 menit</li>
+            <li>Teknik strobist (siang/malam)</li>
+            <li>Maksimal 4 orang</li>
+            <li>20+ file hasil editan</li>
+            <li>+Rp 60.000 per orang tambahan</li>
+          </ul>
+          <a href="https://wa.me/6285244189949?text=Halo%20Khaidir%2C%20aku%20mau%20tanya%20Squad%20Strobist%20nih!" class="btn-paket filled" target="_blank" rel="noopener">
+            Tanya soal paket ini
+          </a>
+        </div>
+
+        <div class="paket-card reveal reveal-d3">
+          <div class="paket-icon">🎥</div>
+          <div class="paket-name">Squad Sinema</div>
+          <div class="paket-price">Rp 500.000</div>
+          <div class="paket-note">Paling lengkap — foto + video cinematic.</div>
+          <hr class="paket-divider" />
+          <ul class="paket-list">
+            <li>Sesi foto &amp; video 1 jam 30 menit</li>
+            <li>Video cinematic 1 menit</li>
+            <li>Teknik strobist (siang/malam)</li>
+            <li>Maksimal 4 orang</li>
+            <li>20+ file hasil editan</li>
+          </ul>
+          <a href="https://wa.me/6285244189949?text=Halo%20Khaidir%2C%20aku%20mau%20tanya%20Squad%20Sinema%20nih!" class="btn-paket outline" target="_blank" rel="noopener">
+            Tanya soal paket ini
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 4. PORTOFOLIO -->
+  <section id="portofolio">
+    <div class="container">
+      <span class="section-label reveal">Portofolio</span>
+      <h2 class="reveal">Hasil jepretan <span class="brand-word">Poto<span class="dot">.</span></span><br />bukan stock photo.</h2>
+      <p class="sub-desc reveal">Foto dari sesi nyata — asli, diedit manual, tanpa filter instan.</p>
+
+      <div class="foto-grid reveal">
+        <div class="foto-box" onclick="openLightbox(this)">
+          <img src="foto/foto20.jpg" loading="lazy" decoding="async" alt="Foto wisuda" style="object-position: calc(50% - 10px) center;" />
+          <span class="foto-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1F1912" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
+        </div>
+        <div class="foto-box" onclick="openLightbox(this)">
+          <img src="foto/foto15.jpg" loading="lazy" decoding="async" alt="Foto wisuda" />
+          <span class="foto-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1F1912" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
+        </div>
+        <div class="foto-box" onclick="openLightbox(this)">
+          <img src="foto/foto11.jpg" loading="lazy" decoding="async" alt="Foto portrait senja" />
+          <span class="foto-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1F1912" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
+        </div>
+        <div class="foto-box" onclick="openLightbox(this)">
+          <img src="foto/foto17.jpg" loading="lazy" decoding="async" alt="Foto wisuda" style="object-position: center top;" />
+          <span class="foto-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1F1912" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
+        </div>
+        <div class="foto-box" onclick="openLightbox(this)">
+          <img src="foto/foto9.jpg" loading="lazy" decoding="async" alt="Foto wisuda keluarga" style="object-position: center -20px;" />
+          <span class="foto-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1F1912" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
+        </div>
+        <div class="foto-box" onclick="openLightbox(this)">
+          <img src="foto/foto6.jpg" loading="lazy" decoding="async" alt="Foto wisuda hitam putih" />
+          <span class="foto-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1F1912" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
+        </div>
+      </div>
+
+      <p class="porto-caption reveal">
+        Klik foto untuk lihat lebih besar. Semua diambil dan diedit sendiri.
+      </p>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" aria-label="Tutup">&times;</button>
+    <img id="lightboxImg" src="" alt="Foto portofolio" />
+  </div>
+
+
+  <!-- 5. CARA PESAN -->
+  <section id="cara-pesan">
+    <div class="container--narrow">
+      <span class="section-label reveal">Cara Pesan</span>
+      <h2 class="reveal">Tiga langkah,<br />langsung jadi.</h2>
+      <p class="sub-desc reveal">Nggak perlu ribet. Chat, atur jadwal, foto — selesai.</p>
+
+      <div class="langkah-list">
+        <div class="langkah reveal reveal-d1">
+          <div class="langkah-num">1</div>
+          <div>
+            <h3>Chat WhatsApp</h3>
+            <p>Ceritain kapan wisudanya, mau paket apa, ada permintaan khusus — santai aja.</p>
+          </div>
+        </div>
+
+        <div class="langkah reveal reveal-d2">
+          <div class="langkah-num">2</div>
+          <div>
+            <h3>Atur tanggal &amp; spot</h3>
+            <p>Pilih jadwal dan spot kampus yang kamu suka. Bisa hari H asal booking duluan.</p>
+          </div>
+        </div>
+
+        <div class="langkah reveal reveal-d3">
+          <div class="langkah-num">3</div>
+          <div>
+            <h3>Foto, edit, terima</h3>
+            <p>Sesi foto selesai, diedit manual, dikirim ke kamu. Estimasi 2–3 hari kerja.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 6. FAQ -->
+  <section id="faq">
+    <div class="container--narrow">
+      <span class="section-label reveal">FAQ</span>
+      <h2 class="reveal">Pertanyaan yang<br />sering muncul.</h2>
+
+      <div class="faq-list">
+        <details class="faq-item reveal">
+          <summary class="faq-q">
+            Gimana cara tahu kualitas fotonya sebelum booking?
+            <span class="faq-chevron" aria-hidden="true">▾</span>
+          </summary>
+          <p class="faq-a">
+            Lihat langsung di bagian portofolio — itu hasil asli dari sesi nyata.
+            Kalau hasilnya cocok dengan seleramu, baru booking. Nggak ada tekanan.
+          </p>
+        </details>
+
+        <details class="faq-item reveal reveal-d1">
+          <summary class="faq-q">
+            Bisa foto di hari H wisuda?
+            <span class="faq-chevron" aria-hidden="true">▾</span>
+          </summary>
+          <p class="faq-a">
+            Bisa! Booking minimal 3–5 hari sebelumnya supaya jadwal tidak bentrok.
+            Hari H biasanya ramai, jadi lebih enak kalau diatur dari jauh hari.
+          </p>
+        </details>
+
+        <details class="faq-item reveal reveal-d2">
+          <summary class="faq-q">
+            Kalau hasilnya nggak memuaskan?
+            <span class="faq-chevron" aria-hidden="true">▾</span>
+          </summary>
+          <p class="faq-a">
+            Kita diskusi. Ada foto kurang cocok — bisa request revisi ringan.
+            Kalau memang jauh dari ekspektasi, kita bicarakan soal pembayaran.
+            Saya nggak mau kamu merasa dirugikan.
+          </p>
+        </details>
+
+        <details class="faq-item reveal reveal-d3">
+          <summary class="faq-q">
+            Area mana aja yang di-cover?
+            <span class="faq-chevron" aria-hidden="true">▾</span>
+          </summary>
+          <p class="faq-a">
+            Untuk sekarang area kampus dan sekitar kota Palu. Kalau lokasinya agak jauh,
+            bisa didiskusikan — mungkin ada sedikit biaya transport tambahan.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 7. CTA -->
+  <section id="cta">
+    <div class="container">
+      <div class="cta-brand reveal">Poto<span class="dot" style="color:#fff">.</span></div>
+      <h2 class="reveal">Yuk, abadikan hari wisudamu.</h2>
+      <p class="reveal">
+        Chat aja dulu — tanya-tanya boleh, nggak ada tekanan buat langsung booking.
+      </p>
+      <div class="reveal">
+        <a href="https://wa.me/6285244189949?text=Halo%20Khaidir%2C%20aku%20mau%20tanya%20soal%20foto%20wisuda%20nih!" class="btn-wa white" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat WhatsApp sekarang
+        </a>
+      </div>
+
+      <div class="sosmed-links reveal">
+        <a href="https://instagram.com/khai_akml" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @khai_akml
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FLOATING WA -->
+  <a href="https://wa.me/6285244189949?text=Halo%20Khaidir%2C%20aku%20mau%20tanya%20soal%20foto%20wisuda%20nih!" class="wa-float" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span>Tanya via WhatsApp</span>
+  </a>
+
+
+  <footer>
+    <p>&copy; 2026 Poto. &middot; Foto Wisuda sama Khaidir, Palu</p>
+  </footer>
+
+
+  <script>
+    // Reveal on scroll
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Sticky nav — show after scrolling past hero
+    const nav = document.getElementById('siteNav');
+    const hero = document.getElementById('hero');
+    const navObs = new IntersectionObserver(([e]) => {
+      nav.classList.toggle('visible', !e.isIntersecting);
+    }, { threshold: 0 });
+    navObs.observe(hero);
+
+    // FAQ accordion
+    document.querySelectorAll('details.faq-item').forEach(d => {
+      d.addEventListener('toggle', () => {
+        if (d.open) document.querySelectorAll('details.faq-item').forEach(o => { if (o !== d) o.removeAttribute('open'); });
+      });
+    });
+
+    // Pricing tabs
+    document.querySelectorAll('.harga-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.harga-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('grid-perorangan').style.display = tab.dataset.target === 'grid-perorangan' ? 'grid' : 'none';
+        document.getElementById('grid-grup').style.display = tab.dataset.target === 'grid-grup' ? 'grid' : 'none';
+      });
+    });
+
+    // Lightbox
+    function openLightbox(box) {
+      const img = box.querySelector('img');
+      const lb = document.getElementById('lightbox');
+      document.getElementById('lightboxImg').src = img.src;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    // Animate stats numbers on scroll
+    const animateNumbers = () => {
+      document.querySelectorAll('.stat-number').forEach(el => {
+        const text = el.textContent;
+        const num = parseInt(text);
+        if (isNaN(num) || el.dataset.animated) return;
+        el.dataset.animated = '1';
+        const suffix = text.replace(/[\d]/g, '');
+        let current = 0;
+        const step = Math.ceil(num / 40);
+        const timer = setInterval(() => {
+          current = Math.min(current + step, num);
+          el.textContent = current + suffix;
+          if (current >= num) clearInterval(timer);
+        }, 30);
+      });
+    };
+    const statsObs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { animateNumbers(); statsObs.unobserve(e.target); }
+    }, { threshold: 0.3 });
+    const statsEl = document.getElementById('stats');
+    if (statsEl) statsObs.observe(statsEl);
+  </script>
+
+</body>
+</html>
