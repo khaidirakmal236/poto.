@@ -393,19 +393,25 @@
       position: absolute;
       inset: 0;
       display: flex;
-      gap: 10px;
-      align-items: center;
+      flex-direction: column;
+      gap: 8px;
+      justify-content: center;
       pointer-events: none;
       user-select: none;
-      opacity: .25;
+      opacity: .35;
     }
 
     .hello-gallery .hello-row {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       flex-shrink: 0;
-      animation: helloScroll 30s linear infinite;
+      animation: helloScroll 35s linear infinite;
       will-change: transform;
+    }
+
+    .hello-gallery .hello-row:nth-child(2) {
+      animation-direction: reverse;
+      animation-duration: 40s;
     }
 
     @keyframes helloScroll { to { transform: translateX(-50%); } }
@@ -416,8 +422,8 @@
 
     .hello-gallery .hello-thumb {
       flex-shrink: 0;
-      width: 180px;
-      height: 120px;
+      width: 280px;
+      height: 190px;
       border-radius: 12px;
       object-fit: cover;
     }
@@ -1412,17 +1418,31 @@
         <img src="foto/foto27.jpg" class="hello-thumb" alt="" />
         <img src="foto/foto28.jpg" class="hello-thumb" alt="" />
         <img src="foto/foto29.jpg" class="hello-thumb" alt="" />
-        <img src="foto/foto15.jpg" class="hello-thumb" alt="" />
-        <img src="foto/foto16.jpg" class="hello-thumb" alt="" />
-        <img src="foto/foto17.jpg" class="hello-thumb" alt="" />
+        <img src="foto/foto30.jpg" class="hello-thumb" alt="" />
+        <img src="foto/foto31.jpg" class="hello-thumb" alt="" />
         <img src="foto/foto25.jpg" class="hello-thumb" alt="" />
         <img src="foto/foto26.jpg" class="hello-thumb" alt="" />
         <img src="foto/foto27.jpg" class="hello-thumb" alt="" />
         <img src="foto/foto28.jpg" class="hello-thumb" alt="" />
         <img src="foto/foto29.jpg" class="hello-thumb" alt="" />
+        <img src="foto/foto30.jpg" class="hello-thumb" alt="" />
+        <img src="foto/foto31.jpg" class="hello-thumb" alt="" />
+      </div>
+      <div class="hello-row">
         <img src="foto/foto15.jpg" class="hello-thumb" alt="" />
         <img src="foto/foto16.jpg" class="hello-thumb" alt="" />
         <img src="foto/foto17.jpg" class="hello-thumb" alt="" />
+        <img src="foto/foto32.jpg" class="hello-thumb" alt="" />
+        <img src="foto/foto33.jpg" class="hello-thumb" alt="" />
+        <img src="foto/foto20.jpg" class="hello-thumb" alt="" />
+        <img src="foto/foto11.jpg" class="hello-thumb" alt="" />
+        <img src="foto/foto15.jpg" class="hello-thumb" alt="" />
+        <img src="foto/foto16.jpg" class="hello-thumb" alt="" />
+        <img src="foto/foto17.jpg" class="hello-thumb" alt="" />
+        <img src="foto/foto32.jpg" class="hello-thumb" alt="" />
+        <img src="foto/foto33.jpg" class="hello-thumb" alt="" />
+        <img src="foto/foto20.jpg" class="hello-thumb" alt="" />
+        <img src="foto/foto11.jpg" class="hello-thumb" alt="" />
       </div>
     </div>
     <div class="hello-vignette"></div>
