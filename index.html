@@ -317,8 +317,8 @@
        TRUST BAR
     ═══════════════════════════════════════════ */
     #trust {
-      background: var(--white);
-      padding: 0;
+      background: var(--surface);
+      padding: 48px 0;
       border-bottom: 1px solid var(--border);
     }
 
@@ -327,17 +327,28 @@
       align-items: stretch;
       justify-content: center;
       flex-wrap: wrap;
+      gap: 16px;
     }
 
     .trust-item {
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 24px 36px;
-      border-right: 1px solid var(--border);
+      padding: 20px 28px;
+      background: rgba(255,255,255,.55);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,.7);
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.04);
       flex: 1;
       min-width: 200px;
       justify-content: center;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .trust-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,.08);
     }
     .trust-item:last-child { border-right: none; }
 
@@ -366,37 +377,83 @@
     }
 
     /* ═══════════════════════════════════════════
-       STATS STRIP
+       HELLO / INTRO STRIP
     ═══════════════════════════════════════════ */
-    #stats {
+    #hello {
       background: var(--ink);
-      padding: 56px 0;
+      padding: 72px 0;
+      position: relative;
+      overflow: hidden;
     }
 
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      text-align: center;
+    .hello-inner {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
-    .stat-item {
-      padding: 8px;
+    .hello-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      flex-shrink: 0;
     }
 
-    .stat-number {
+    .hello-text {
+      color: rgba(255,255,255,.85);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .hello-text .hello-greeting {
       font-family: 'Baloo 2', cursive;
-      font-size: clamp(2.4rem, 6vw, 3.4rem);
-      font-weight: 800;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: 4px;
+      font-size: clamp(1.4rem, 4vw, 1.8rem);
+      font-weight: 700;
+      color: var(--cream);
+      display: block;
+      margin-bottom: 8px;
     }
 
-    .stat-label {
-      font-size: .85rem;
-      color: rgba(255,255,255,.5);
-      font-weight: 500;
+    .hello-text .hello-name {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .hello-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 10px 24px;
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 100px;
+      color: var(--cream);
+      font-size: .88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background .25s, border-color .25s;
+    }
+    .hello-cta:hover {
+      background: rgba(255,255,255,.14);
+      border-color: rgba(255,255,255,.25);
+    }
+
+    /* ═══════════════════════════════════════════
+       GLASSMORPHISM UTILITIES
+    ═══════════════════════════════════════════ */
+    .glass {
+      background: rgba(255,255,255,.55);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,.6);
+      box-shadow: 0 8px 32px rgba(0,0,0,.06);
     }
 
     /* ═══════════════════════════════════════════
@@ -426,17 +483,20 @@
     }
 
     .alasan-card {
-      background: var(--white);
-      border: 1px solid var(--border);
+      background: rgba(255,255,255,.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,.7);
       border-radius: var(--radius);
       padding: 40px 32px;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,.04);
       transition: transform .3s cubic-bezier(.22,.61,.36,1), box-shadow .3s cubic-bezier(.22,.61,.36,1);
     }
     .alasan-card:hover {
       transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 12px 40px rgba(0,0,0,.1);
     }
 
     .alasan-icon {
@@ -1143,12 +1203,12 @@
       .foto-grid .foto-box:nth-child(5) { grid-column: 1; grid-row: auto; aspect-ratio: 3/4; }
       .foto-grid .foto-box:nth-child(6) { grid-column: 2; grid-row: auto; aspect-ratio: 3/4; }
 
-      .stats-grid { gap: 12px; }
-      .stat-number { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+      .hello-inner { flex-direction: column; text-align: center; gap: 24px; }
+      .hello-avatar { width: 96px; height: 96px; }
 
       .trust-inner { flex-direction: column; }
-      .trust-item { border-right: none; border-bottom: 1px solid var(--border); justify-content: flex-start; padding: 18px 24px; }
-      .trust-item:last-child { border-bottom: none; }
+      .trust-item { justify-content: flex-start; padding: 18px 24px; }
+      .trust-item:last-child { border-right: none; }
 
       #cta { padding: 80px 0; }
     }
@@ -1282,21 +1342,19 @@
   </div>
 
 
-  <!-- STATS -->
-  <div id="stats">
+  <!-- HELLO / PERKENALAN -->
+  <div id="hello">
     <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item reveal">
-          <div class="stat-number">10+</div>
-          <div class="stat-label">Sesi foto selesai</div>
-        </div>
-        <div class="stat-item reveal reveal-d1">
-          <div class="stat-number">200+</div>
-          <div class="stat-label">Foto sudah diedit</div>
-        </div>
-        <div class="stat-item reveal reveal-d2">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Klien puas</div>
+      <div class="hello-inner reveal">
+        <img src="foto/khaidir.jpeg" alt="Khaidir" class="hello-avatar" />
+        <div class="hello-text">
+          <span class="hello-greeting">Hai, salam kenal! &#x1F44B;</span>
+          Saya <span class="hello-name">Khaidir</span> — orang di balik <span class="brand-word" style="color:var(--cream)">Poto<span class="dot">.</span></span> Saya percaya foto wisuda terbaik itu yang bikin kamu senyum tiap kali ngeliat lagi. Nggak perlu pose kaku, nggak perlu tegang — kita santai aja, hasilnya pasti keren.
+          <br/>
+          <a href="https://wa.me/6285244189949?text=Halo%20Khaidir%2C%20aku%20mau%20tanya%20soal%20foto%20wisuda%20nih!" class="hello-cta" target="_blank" rel="noopener">
+            Chat langsung sama saya
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
       </div>
     </div>
@@ -1379,7 +1437,7 @@
             <li>Sesi foto 1 jam</li>
             <li>Bebas pilih tempat</li>
             <li>20 file hasil editan</li>
-            <li>Video cinematic 1 menit</li>
+            <li>Video cinematic maks 1 menit</li>
             <li>File digital resolusi penuh</li>
           </ul>
           <a href="https://wa.me/6285244189949?text=Halo%20Khaidir%2C%20aku%20mau%20tanya%20Paket%20Cinematic%20nih!" class="btn-paket filled" target="_blank" rel="noopener">
@@ -1396,7 +1454,7 @@
           <div class="paket-note">Maks 4 orang, tambah orang +60rb.</div>
           <hr class="paket-divider" />
           <ul class="paket-list">
-            <li>Sesi foto 45 menit</li>
+            <li>Sesi foto 1 jam</li>
             <li>Bebas pilih tempat</li>
             <li>Maksimal 4 orang</li>
             <li>15 file hasil editan</li>
@@ -1415,7 +1473,7 @@
           <div class="paket-note">Pakai flash — bisa siang atau malam.</div>
           <hr class="paket-divider" />
           <ul class="paket-list">
-            <li>Sesi foto 1 jam 30 menit</li>
+            <li>Sesi foto 1 jam</li>
             <li>Teknik strobist (siang/malam)</li>
             <li>Maksimal 4 orang</li>
             <li>20+ file hasil editan</li>
@@ -1433,8 +1491,8 @@
           <div class="paket-note">Paling lengkap — foto + video cinematic.</div>
           <hr class="paket-divider" />
           <ul class="paket-list">
-            <li>Sesi foto &amp; video 1 jam 30 menit</li>
-            <li>Video cinematic 1 menit</li>
+            <li>Sesi foto &amp; video 1 jam</li>
+            <li>Video cinematic maks 1 menit</li>
             <li>Teknik strobist (siang/malam)</li>
             <li>Maksimal 4 orang</li>
             <li>20+ file hasil editan</li>
@@ -1672,28 +1730,6 @@
     }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
-    // Animate stats numbers on scroll
-    const animateNumbers = () => {
-      document.querySelectorAll('.stat-number').forEach(el => {
-        const text = el.textContent;
-        const num = parseInt(text);
-        if (isNaN(num) || el.dataset.animated) return;
-        el.dataset.animated = '1';
-        const suffix = text.replace(/[\d]/g, '');
-        let current = 0;
-        const step = Math.ceil(num / 40);
-        const timer = setInterval(() => {
-          current = Math.min(current + step, num);
-          el.textContent = current + suffix;
-          if (current >= num) clearInterval(timer);
-        }, 30);
-      });
-    };
-    const statsObs = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { animateNumbers(); statsObs.unobserve(e.target); }
-    }, { threshold: 0.3 });
-    const statsEl = document.getElementById('stats');
-    if (statsEl) statsObs.observe(statsEl);
   </script>
 
 </body>
